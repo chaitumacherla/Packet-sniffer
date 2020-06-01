@@ -9,7 +9,7 @@ def sniff(interface):
 def process_sniffed_packet(packet):
 
     if packet.haslayer(http.HTTPRequest):
-       url = packet[http.HTTPRequest].Host + packet[http.HTTPRequest].Path   #extracting urls, urls present in http layer>>hostfield>>pathfield
+       url = packet[http.HTTPRequest].Host + packet[http.HTTPRequest].Path   #extracting urls, urls present in http layer>>hostfield>>path
        print(url)
 
        if packet.haslayer(scapy.Raw):       #Raw is the layer that contains username and password
