@@ -1,1 +1,1 @@
-Packet sniffer captures the data flowing through an interface, filter this data and display interesting information such as login info, visited website, images etc..,
+After becoming man-in-the-middle this packet sniffer captures the data flowing through an interface, filter this data and display interesting information such as login info, visited website, images etc..,
